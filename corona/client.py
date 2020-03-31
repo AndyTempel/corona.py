@@ -117,5 +117,3 @@ class Client:
         """
         data = await self.http.request(self.router.historical_by_provice(country, province))
         return Historic(**data)
-
-

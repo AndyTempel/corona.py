@@ -1,7 +1,6 @@
 import abc
 from datetime import datetime, timezone
 
-
 ASCII_LOWER = "abcdefghijklmnopqrstuvwxyz0123456789"
 OFFSET = 127397
 

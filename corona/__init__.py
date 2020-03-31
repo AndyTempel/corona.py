@@ -4,6 +4,6 @@ __license__ = "MIT"
 __author__ = "NANI"
 
 from .client import Client
+from .http import APIError, NotFound
 from .objects import *
 from .router import Router
-from .http import APIError, NotFound
