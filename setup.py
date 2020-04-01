@@ -6,7 +6,7 @@ with open('README.md', 'r') as f:
 setup(
     name='corona.py',
     packages=['corona'],
-    version='0.0.1',
+    version='0.0.2',
     license='MIT',
     description='An asynchronous wrapper for the corona.lmao.ninja API written in Python with Discord.py plugin.',
     long_description=long_desc,

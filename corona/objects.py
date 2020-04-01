@@ -1,8 +1,11 @@
 import abc
+import sys
 from datetime import datetime, timezone
 
 ASCII_LOWER = "abcdefghijklmnopqrstuvwxyz0123456789"
 OFFSET = 127397
+
+DATE_ISOFRMT36 = sys.version.startswith("3.6")
 
 
 class Country:
@@ -84,7 +87,8 @@ class TimelineSeries(abc.ABC):
 class JHUCSSE(CountryProvinceHead):
     def __init__(self, **data):
         super().__init__(**data)
-        self.updated_at = datetime.fromisoformat(data.get('updatedAt'))  # type: datetime
+        self.updated_at = datetime.strptime(data.get('updatedAt'), "%Y-%m-%d %H:%M:%S") if DATE_ISOFRMT36 else \
+            datetime.fromisoformat(data.get('updatedAt'))  # type: datetime
         stats = data.get('stats')
         self.confirmed = stats.get('confirmed')  # type: int
         self.deaths = stats.get('deaths')  # type: int
